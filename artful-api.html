@@ -9,7 +9,10 @@
   </head>
   <body>
     <h1>Virtual Museum Tour</h1>
-    <h2><span>Welcome!</span><br />Do you want to see art work...</h2>
+    <h2><span>Welcome!</span><br />Select your art viewing preference:</h2>
+
+    <!-- Links to different pages here  -->
+    
     <ul>
       <li>Art Image of the day</li>
       <li>Most Popular</li>
@@ -23,11 +26,15 @@
       </ul>
     </ul>
 
+
+
     <p>Image here</p>
     <img src="" alt="" />
 
-    <div>
-      <h2>Art image of the Day/Random?</h2>
+    <!-- -----Image of the Day page-----  -->
+
+    <!-- <div>
+      <h2>Art image of the Day</h2>
       <ul>
         <li>title</li>
         <li>image</li>
@@ -39,7 +46,98 @@
         <li>artistWikidata_URL</li>
         <li></li>
       </ul>
+    </div> -->
+
+    <div>
+      <button id="getImageOfDay">Get Art Image of the Day</button>
+      <h3 id="artTitle">title</h3>
+      <img id="artMainImage" src="" alt="artwork">
+      <h4 id="artistName">artistDisplayName</h4>
+      <p id="dim">dimensions</p>
+      <p id="medium">medium</p>
+      <p id="classif">classification</p>
+      <p id="nation">artistNationality</p>
+      <a id="wikiLink" href="">none</a>
     </div>
+
+    <script>
+      // const express = require('express');
+      // const app = express();
+      // const cors = require("cors");
+      // app.use( cors({ origin: "http://127.0.0.1:5500"}))
+
+      // app.get("/objects")
+
+
+      //Put these variables in the fetch
+      const api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/';
+      const random_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/' + Math.floor(152*Math.random());
+      
+      const searchV_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q="Vincent van Gogh"'
+      
+      const vincent_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/436533'
+
+      const searchA_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q="Mucha"'
+
+      const alphons_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/753533'
+
+      //CORS error:
+      // const isHighlight_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true';
+
+
+      const getImageOfDay = document.getElementById('getImageOfDay');
+      const artTitle = document.getElementById('artTitle');
+      const artMainImage = document.getElementById('artMainImage');
+      const artistName = document.getElementById('artistName');
+      const dim = document.getElementById('dim');
+      const medium = document.getElementById('medium');
+      const classif = document.getElementById('classif');
+      const nation = document.getElementById('nation');
+      const wikiLink = document.getElementById('wikiLink');
+
+      getImageOfDay.addEventListener('click', async function(event){
+        // const httpResponse = await fetch(searchA_api_url);
+        // const httpResponse = await fetch(alphons_api_url);
+        const httpResponse = await fetch(vincent_api_url);
+
+        const body = await httpResponse.json(); //it's a JS object
+        console.log(body);
+
+        if (body.message != 'Not a valid object' && body.message != 'ObjectID not found'){
+        const title = body.title;
+        const img = body.primaryImageSmall;
+        const name = body.artistDisplayName;
+        const artDim = body.dimensions;
+        const artMed = body.medium;
+        const artClass = body.classification;
+        const artNat = body.artistNationality;
+        const wiki = body.artistWikidata_URL;
+
+  
+        artTitle.innerText = title;
+        artMainImage.src = img;
+        artistName.innerText = name;
+        dim.innerText = artDim;
+        medium.innerText = artMed;
+        classif.innerText = artClass;
+        nation.innerText = artNat;
+        // wikiLink = wiki;
+                  
+}
+
+
+
+      });
+
+      // searchPopularArtist.addEventListener('click', async function(event){
+      //   const httpResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true`)
+      // })
+      
+
+    </script>
+
+<!-- -----Most Popular page-----  -->
+
     <div>
       <h2>Most Popular</h2>
       <ul>
@@ -55,6 +153,9 @@
         <li>artistWikidata_URL</li>
       </ul>
     </div>
+
+<!-- -----Random Artwork generator-----  -->
+
     <div>
       <h2>Random</h2>
       <ul>
