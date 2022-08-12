@@ -4,7 +4,7 @@
 
 ## Project Description
 
-Simple web app that randomly(?) generates different art work from the Met to view in the comfort of their home.
+Simple web app that randomly(?) generates different art work from the Met for viewers to "consume" in the comfort of their home.
 
 ## Goal
 
@@ -21,7 +21,8 @@ Simple web app that randomly(?) generates different art work from the Met to vie
 
 ### APIs
 
-- - https://metmuseum.github.io/
+-
+-- https://metmuseum.github.io/
 -
 
 ## Images
@@ -42,7 +43,7 @@ Simple web app that randomly(?) generates different art work from the Met to vie
 
 <!-- image here -->
 
-<!-- description --> -->
+<!-- description --> 
 
 ---
 
