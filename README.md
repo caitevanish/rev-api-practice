@@ -1,4 +1,4 @@
-# title
+# Artful API
 
 <!-- maybe a cover image here -->
 
