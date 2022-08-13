@@ -9,7 +9,7 @@
   </head>
   <body>
     <h1>Virtual Museum Tour</h1>
-    <h2><span>Welcome!</span><br />Select your art viewing preference:</h2>
+    <h2><span>Welcome!</span><br />Select your viewing preference:</h2>
 
     <!-- Links to different pages here  -->
     
@@ -17,36 +17,10 @@
       <li>Art Image of the day</li>
       <li>Most Popular</li>
       <li>Random</li>
-      <li>By collection</li>
-      <li>by medium</li>
-      <ul>
-        <li>Drawing</li>
-        <li>Painting</li>
-        <li>Sculpture</li>
-      </ul>
+      <li>Caitlin's favorites</li>
     </ul>
 
-
-
-    <p>Image here</p>
-    <img src="" alt="" />
-
     <!-- -----Image of the Day page-----  -->
-
-    <!-- <div>
-      <h2>Art image of the Day</h2>
-      <ul>
-        <li>title</li>
-        <li>image</li>
-        <li>artistDisplayName</li>
-        <li>dimensions</li>
-        <li>medium</li>
-        <li>classification</li>
-        <li>artistNationality</li>
-        <li>artistWikidata_URL</li>
-        <li></li>
-      </ul>
-    </div> -->
 
     <div>
       <button id="getImageOfDay">Get Art Image of the Day</button>
@@ -61,28 +35,21 @@
     </div>
 
     <script>
-      // const express = require('express');
-      // const app = express();
-      // const cors = require("cors");
-      // app.use( cors({ origin: "http://127.0.0.1:5500"}))
-
-      // app.get("/objects")
 
 
       //Put these variables in the fetch
       const api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/';
-      const random_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/' + Math.floor(152*Math.random());
+      const random_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/' + Math.floor(90000*Math.random());
       
-      const searchV_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q="Vincent van Gogh"'
+      const searchVGG_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q="Vincent van Gogh"'
       
       const vincent_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/436533'
 
-      const searchA_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q="Mucha"'
+      const searchAM_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q="Mucha"'
 
       const alphons_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/753533'
 
-      //CORS error:
-      // const isHighlight_api_url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true';
+
 
 
       const getImageOfDay = document.getElementById('getImageOfDay');
@@ -95,6 +62,8 @@
       const nation = document.getElementById('nation');
       const wikiLink = document.getElementById('wikiLink');
 
+
+
       getImageOfDay.addEventListener('click', async function(event){
         // const httpResponse = await fetch(searchA_api_url);
         // const httpResponse = await fetch(alphons_api_url);
@@ -103,7 +72,9 @@
         const body = await httpResponse.json(); //it's a JS object
         console.log(body);
 
+
         if (body.message != 'Not a valid object' && body.message != 'ObjectID not found'){
+          
         const title = body.title;
         const img = body.primaryImageSmall;
         const name = body.artistDisplayName;
@@ -121,38 +92,37 @@
         medium.innerText = artMed;
         classif.innerText = artClass;
         nation.innerText = artNat;
-        // wikiLink = wiki;
-                  
-}
-
-
-
-      });
-
-      // searchPopularArtist.addEventListener('click', async function(event){
-      //   const httpResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true`)
-      // })
-      
+        // wikiLink = wiki;            
+}});
+  
 
     </script>
 
 <!-- -----Most Popular page-----  -->
 
-    <div>
-      <h2>Most Popular</h2>
-      <ul>
-        <li><b>isHighlight</b></li>
-        <li>primaryImage</li>
-        <li>title</li>
-        <li>image</li>
-        <li>artistDisplayName</li>
-        <li>dimensions</li>
-        <li>medium</li>
-        <li>classification</li>
-        <li>artistNationality</li>
-        <li>artistWikidata_URL</li>
-      </ul>
-    </div>
+<div>
+  <h2>Most Popular</h2>
+  <ul>
+    <li>title</li>
+    <li>image</li>
+    <li>artistDisplayName</li>
+    <li>dimensions</li>
+    <li>medium</li>
+    <li>classification</li>
+    <li>artistNationality</li>
+    <li>artistWikidata_URL</li>
+    <button>Next</button>
+    <button>Previous</button>
+  </ul>
+</div>
+
+<script>
+  // searchPopularArtist.addEventListener('click', async function(event){
+      //   const httpResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true`)
+      // })
+</script>
+
+
 
 <!-- -----Random Artwork generator-----  -->
 
@@ -170,25 +140,29 @@
         <button>Get new Artwork</button>
       </ul>
     </div>
-    <!-- <div>
-      <h2>By Collection</h2>
+
+    <script></script>
+
+    <!-- -----Caitlin's Favorites-----  -->
+
+    <div>
+      <h2>Caitlin's Favorites</h2>
       <ul>
-        <li>portfolio</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>title</li>
+        <li>image</li>
+        <li>artistDisplayName</li>
+        <li>dimensions</li>
+        <li>medium</li>
+        <li>classification</li>
+        <li>artistNationality</li>
+        <li>artistWikidata_URL</li>
+        <button>Next</button>
+        <button>Previous</button>
       </ul>
     </div>
-    <div>
-      <h2>By Medium</h2>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul> -->
+    
+    <script></script>
+
     </div>
   </body>
   <script></script>
