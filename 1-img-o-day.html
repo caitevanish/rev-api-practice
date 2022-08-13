@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image of the Day</title>
+  </head>
+  <body>
+    <nav><a href="/art-api-home.html">Back to Home</a></nav>
+    <main class="container">
+      <div class="display"></div>
+    </main>
+    <!-- <div>
+      <button id="getImageOfDay">Get Art Image of the Day</button>
+      <h3 id="artTitle">title</h3>
+      <img id="artMainImage" src="" alt="artwork" />
+      <h4 id="artistName">artistDisplayName</h4>
+      <p id="dim">dimensions</p>
+      <p id="medium">medium</p>
+      <p id="classif">classification</p>
+      <p id="nation">artistNationality</p>
+      <a id="wikiLink" href="">none</a>
+    </div> -->
+
+    <script>
+      // const btn = document.querySelector(.'')
+      const displayContainer = document.querySelector('.display');
+
+      //Old school AJAX request
+      const request = new XMLHttpRequest();
+      request.open(
+        'GET',
+        'https://collectionapi.metmuseum.org/public/collection/v1/objects/436533'
+      );
+      request.send();
+      //once data arrives...
+      //register a callback on the load:
+      request.addEventListener('load', function () {
+        // console.log(this.responseText);
+
+        const data = JSON.parse(this.responseText);
+        console.log(data);
+
+        const html = `<div>
+        <h3 id="artTitle">${data.title}</h3>
+        <img id="artMainImage" src="${data.primaryImageSmall}" alt="artwork" />
+        <h4 id="artistName">${data.artistDisplayName}</h4>
+        <p id="dim">${data.dimensions}</p>
+        <p id="medium">${data.medium}</p>
+        <p id="classif">${data.classification}</p>
+        <p id="nation">${data.artistNationality}</p>
+        <a id="wikiLink" href="">${data.objectWikidata_URL}</a>
+      </div> `;
+        displayContainer.insertAdjacentHTML('beforeend', html);
+      });
+
+      // const vincent_api_url =
+      //   'https://collectionapi.metmuseum.org/public/collection/v1/objects/436533';
+
+      // const getImageOfDay = document.getElementById('getImageOfDay');
+      // const artTitle = document.getElementById('artTitle');
+      // const artMainImage = document.getElementById('artMainImage');
+      // const artistName = document.getElementById('artistName');
+      // const dim = document.getElementById('dim');
+      // const medium = document.getElementById('medium');
+      // const classif = document.getElementById('classif');
+      // const nation = document.getElementById('nation');
+      // const wikiLink = document.getElementById('wikiLink');
+
+      // //On Load
+      // getImageOfDay.addEventListener('onload', function (event) {
+      //   const httpResponse = fetch(vincent_api_url);
+
+      //   const body = httpResponse.json(); //it's a JS object
+      //   console.log(body);
+
+      //   if (
+      //     body.message != 'Not a valid object' &&
+      //     body.message != 'ObjectID not found'
+      //   ) {
+      //     const title = body.title;
+      //     const img = body.primaryImageSmall;
+      //     const name = body.artistDisplayName;
+      //     const artDim = body.dimensions;
+      //     const artMed = body.medium;
+      //     const artClass = body.classification;
+      //     const artNat = body.artistNationality;
+      //     const wiki = body.artistWikidata_URL;
+
+      //     artTitle.innerText = title;
+      //     artMainImage.src = img;
+      //     artistName.innerText = name;
+      //     dim.innerText = artDim;
+      //     medium.innerText = artMed;
+      //     classif.innerText = artClass;
+      //     nation.innerText = artNat;
+      //   }
+      // });
+    </script>
+  </body>
+</html>
