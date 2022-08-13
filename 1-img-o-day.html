@@ -7,53 +7,49 @@
     <title>Image of the Day</title>
   </head>
   <body>
-    <nav><a href="/art-api-home.html">Back to Home</a></nav>
+    <nav><a href="/0-art-api-home.html">Back to Home</a></nav>
     <main class="container">
       <div class="display"></div>
     </main>
-    <!-- <div>
-      <button id="getImageOfDay">Get Art Image of the Day</button>
-      <h3 id="artTitle">title</h3>
-      <img id="artMainImage" src="" alt="artwork" />
-      <h4 id="artistName">artistDisplayName</h4>
-      <p id="dim">dimensions</p>
-      <p id="medium">medium</p>
-      <p id="classif">classification</p>
-      <p id="nation">artistNationality</p>
-      <a id="wikiLink" href="">none</a>
-    </div> -->
 
-    <script>
+    <script src="/scripts.js">
+      
       // const btn = document.querySelector(.'')
-      const displayContainer = document.querySelector('.display');
+      // const displayContainer = document.querySelector('.display');
 
-      //Old school AJAX request
-      const request = new XMLHttpRequest();
-      request.open(
-        'GET',
-        'https://collectionapi.metmuseum.org/public/collection/v1/objects/436533'
-      );
-      request.send();
-      //once data arrives...
-      //register a callback on the load:
-      request.addEventListener('load', function () {
-        // console.log(this.responseText);
+      // /////////////////////////////////////////////////////
+      // //Old school AJAX request
 
-        const data = JSON.parse(this.responseText);
-        console.log(data);
+      // const getImageData = function (artObjectId) {
+      //   const request = new XMLHttpRequest();
+      //   request.open(
+      //     'GET',
+      //     `https://collectionapi.metmuseum.org/public/collection/v1/objects/${artObjectId}`
+      //   );
+      //   request.send();
+      //   //once data arrives...
+      //   //register a callback on the load:
+      //   request.addEventListener('load', function () {
+      //     // console.log(this.responseText);
 
-        const html = `<div>
-        <h3 id="artTitle">${data.title}</h3>
-        <img id="artMainImage" src="${data.primaryImageSmall}" alt="artwork" />
-        <h4 id="artistName">${data.artistDisplayName}</h4>
-        <p id="dim">${data.dimensions}</p>
-        <p id="medium">${data.medium}</p>
-        <p id="classif">${data.classification}</p>
-        <p id="nation">${data.artistNationality}</p>
-        <a id="wikiLink" href="">${data.objectWikidata_URL}</a>
-      </div> `;
-        displayContainer.insertAdjacentHTML('beforeend', html);
-      });
+      //     const data = JSON.parse(this.responseText);
+      //     console.log(data);
+
+      //     const html = `<div>
+      //   <h3 id="artTitle">${data.title}</h3>
+      //   <img id="artMainImage" src="${data.primaryImageSmall}" alt="artwork" />
+      //   <h4 id="artistName">${data.artistDisplayName}</h4>
+      //   <p id="dim">${data.dimensions}</p>
+      //   <p id="medium">${data.medium}</p>
+      //   <p id="classif">${data.classification}</p>
+      //   <p id="nation">${data.artistNationality}</p>
+      //   <a id="wikiLink" href="">${data.objectWikidata_URL}</a>
+      // </div> `;
+      //     displayContainer.insertAdjacentHTML('beforeend', html);
+      //   });
+      // };
+
+      // getImageData('436533');
 
       // const vincent_api_url =
       //   'https://collectionapi.metmuseum.org/public/collection/v1/objects/436533';
