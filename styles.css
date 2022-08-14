@@ -32,14 +32,16 @@ a:visited h3 {
 #wikiLink {
   color: blue;
 }
-
 .container {
   width: 80vw; /* wAdds space on the sides */
+  padding-left: 20%;
+}
+
+.container.panels {
   /* height: 50vh; */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 20%;
 }
 
 .panel {

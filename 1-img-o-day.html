@@ -16,6 +16,10 @@
     <!-- <script src="/scripts.js"> -->
     <script>
       const displayContainer = document.querySelector('.display');
+      const request = fetch(
+        'https://collectionapi.metmuseum.org/public/collection/v1/objects/753533'
+      );
+      console.log(request);
 
       const renderArtworks = function (data, className = '') {
         if (
@@ -35,11 +39,6 @@
           displayContainer.insertAdjacentHTML('beforeend', html);
         }
       };
-
-      const request = fetch(
-        'https://collectionapi.metmuseum.org/public/collection/v1/objects/753533'
-      );
-      console.log(request);
 
       // ------------Promises:----------------
       // promise #1: fetching the object
