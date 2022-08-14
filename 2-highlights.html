@@ -28,7 +28,12 @@
         <button>Previous</button>
       </ul>
     </div>
-    <!-- <script src="/scripts.js"></script> -->
+
+    index.search('query', { filters: `is_highlight:true` }).then(({ hits }) => {
+    console.log(hits); }); const searchAM_api_url =
+    'https://collectionapi.metmuseum.org/public/collection/search?showOnly=highlights%7CwithImage'
+    collection/search?showOnly=highlights%7CwithImage
+
     <script>
       // searchPopularArtist.addEventListener('click', async function(event){
       //   const httpResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true`)

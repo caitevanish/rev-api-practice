@@ -12,8 +12,13 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   text-align: center;
+}
+
+p {
+  margin: auto;
 }
 
 a:link,
@@ -22,6 +27,10 @@ a:visited h3 {
   padding: auto;
   text-align: center;
   text-decoration: none;
+}
+
+#wikiLink {
+  color: blue;
 }
 
 .container {
