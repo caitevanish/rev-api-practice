@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Popular</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <nav><a href="/0-art-api-home.html">Back to Home</a></nav>
@@ -29,6 +30,10 @@
     </div>
     <!-- <script src="/scripts.js"></script> -->
     <script>
+      // searchPopularArtist.addEventListener('click', async function(event){
+      //   const httpResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true`)
+      // })
+
       const renderHighlights = function (data) {
         const html = `<div>
       <h3 id="artTitle">${data.title}</h3>

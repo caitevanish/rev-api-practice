@@ -8,38 +8,26 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div>
+    <div class ="header">
       <h1>Welcome to the Mini Met</h1>
       <h2>What do you want to see?</h2>
 
     </div>
-    <div class="container">
-    <div class="panel active overlay" style="background-image: url('https://images.unsplash.com/photo-1606819717115-9159c900370b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
-      <a href="/1-img-o-day.html"><h3>Image of the Day</h3></a>
-    </div>
-    <div class="panel" style="background-image:url('https://images.unsplash.com/photo-1499426600726-a950358acf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"><h3>Most Popular</h3></div>
-    <div class="panel" style="background-image:url('https://images.unsplash.com/photo-1576254232140-70c274d668c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"><h3>Caitlin's Favorites</h3></div>
-    <div class="panel" style="background-image:url('https://images.unsplash.com/photo-1633785585011-7a1b378177bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80')"><h3>Random</h3></div>
+      <div class="container">
 
+        <div class="panel active overlay" style="background-image: url('https://images.unsplash.com/photo-1606819717115-9159c900370b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
+        <a href="/1-img-o-day.html"><h3>Image of the Day</h3></a>
+        </div>
+        <div class="panel" style="background-image:url('https://images.unsplash.com/photo-1499426600726-a950358acf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"><a href="/2-highlights.html"><h3>Most Popular</h3></a></div>
+        <div class="panel" style="background-image:url('https://images.unsplash.com/photo-1576254232140-70c274d668c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"><a href="/3-caitlins-faves.html"><h3>Caitlin's Favorites</h3></a></div>
+        <div class="panel" style="background-image:url('https://images.unsplash.com/photo-1633785585011-7a1b378177bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80')"><a href="/4-random.html"><h3>Random</h3></a></div>
 
+      </div>
 
-  </div>
-
-
-    <!-- Links to different pages here  -->
-    
-    <ul>
-      <!-- <li><button id="toImageOfDayPage" href="/1-img-o-day.html">Get Art Image of the Day</button> -->
-      <li><a href="/1-img-o-day.html">Art Image of the day</a></li>
-      <li><a href="/2-highlights.html">Most Popular</a></li>
-      <li>Random</li>
-      <li>Caitlin's favorites</li>
-    </ul>
-
-    <script>
-
-      
-    </script>
+    <script src="/scripts.js"></script>
+  </body>
+  
+</html>
 
     <!-- -----Image of the Day page-----  -->
 
@@ -116,75 +104,3 @@
         // wikiLink = wiki;            
 }});
   
-
-    </script> -->
-
-<!-- -----Most Popular page-----  -->
-
-<div>
-  <h2>Most Popular</h2>
-  <ul>
-    <li>title</li>
-    <li>image</li>
-    <li>artistDisplayName</li>
-    <li>dimensions</li>
-    <li>medium</li>
-    <li>classification</li>
-    <li>artistNationality</li>
-    <li>artistWikidata_URL</li>
-    <button>Next</button>
-    <button>Previous</button>
-  </ul>
-</div>
-
-<script>
-  // searchPopularArtist.addEventListener('click', async function(event){
-      //   const httpResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true`)
-      // })
-</script>
-
-
-
-<!-- -----Random Artwork generator-----  -->
-
-    <div>
-      <h2>Random</h2>
-      <ul>
-        <li>title</li>
-        <li>image</li>
-        <li>artistDisplayName</li>
-        <li>dimensions</li>
-        <li>medium</li>
-        <li>classification</li>
-        <li>artistNationality</li>
-        <li>artistWikidata_URL</li>
-        <button>Get new Artwork</button>
-      </ul>
-    </div>
-
-    <script></script>
-
-    <!-- -----Caitlin's Favorites-----  -->
-
-    <div>
-      <h2>Caitlin's Favorites</h2>
-      <ul>
-        <li>title</li>
-        <li>image</li>
-        <li>artistDisplayName</li>
-        <li>dimensions</li>
-        <li>medium</li>
-        <li>classification</li>
-        <li>artistNationality</li>
-        <li>artistWikidata_URL</li>
-        <button>Next</button>
-        <button>Previous</button>
-      </ul>
-    </div>
-    
-    
-  </div>
-  <script src="scripts.js"></script>
-</body>
-  <script></script>
-</html>
