@@ -7,7 +7,10 @@
     <title>Document</title>
   </head>
   <body>
-    <nav><a href="/art-api-home.html">Back to Home</a></nav>
+    <nav><a href="/0-art-api-home.html">Back to Home</a></nav>
+    <main class="container">
+      <div class="display"></div>
+    </main>
 
     <div>
       <h2>Most Popular</h2>
@@ -24,7 +27,40 @@
         <button>Previous</button>
       </ul>
     </div>
-  </body>
+    <!-- <script src="/scripts.js"></script> -->
+    <script>
+      const renderHighlights = function (data) {
+        const html = `<div>
+      <h3 id="artTitle">${data.title}</h3>
+      <img id="artMainImage" src="${data.primaryImageSmall}" alt="artwork" />
+      <h4 id="artistName">${data.artistDisplayName}</h4>
+      <p id="dim">${data.dimensions}</p>
+      <p id="medium">${data.medium}</p>
+      <p id="classif">${data.classification}</p>
+      <p id="nation">${data.artistNationality}</p>
+      <a id="wikiLink" href="">${data.objectWikidata_URL}</a>
+    </div> `;
+        displayContainer.insertAdjacentHTML('beforeend', html);
+      };
 
-  <script></script>
+      const getHighlightImages = function (artObjectId) {
+        const request = new XMLHttpRequest();
+        request.open(
+          'GET',
+          `https://collectionapi.metmuseum.org/public/collection/v1/objects/${artObjectId}`
+        );
+        request.send();
+
+        request.addEventListener('load', function () {
+          const data = JSON.parse(this.responseText);
+          console.log(data);
+          renderHighlights(data);
+
+          // Get highlights
+        });
+      };
+
+      getHighlightImages('350055');
+    </script>
+  </body>
 </html>
