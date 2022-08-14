@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 * {
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -15,10 +16,14 @@ h1,
 h2,
 h3 {
   text-align: center;
+  padding-bottom: 10px;
 }
 
 p {
   margin: auto;
+}
+a:last-child {
+  padding-bottom: 20px;
 }
 
 a:link,
@@ -28,20 +33,52 @@ a:visited h3 {
   text-align: center;
   text-decoration: none;
 }
+nav {
+  height: 40px;
+  background-color: rgb(70, 70, 70);
+  margin-bottom: 20px;
+}
+
+nav a:link,
+a:visited {
+  color: white;
+}
+
+button {
+  /* position: relative; */
+  margin-bottom: 10px;
+}
+
+footer {
+  height: 60px;
+  background-color: rgb(61, 59, 59);
+  /* padding-top: 1rem; */
+  margin-top: -90%;
+}
 
 #wikiLink {
   color: blue;
 }
+
+.header {
+  margin-top: 2rem;
+}
+
 .container {
-  width: 80vw; /* wAdds space on the sides */
-  padding-left: 20%;
+  margin: 0;
+  width: 100vw; /* wAdds space on the sides */
+  /* padding-left:  */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .container.panels {
+  width: 80vw;
   /* height: 50vh; */
+  padding-left: 20%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 1rem;
 }
 
 .panel {
@@ -79,12 +116,6 @@ a:visited h3 {
   transition: opacity 0.3s ease-in.4s;
 }
 
-/* @media (max-width: 480px) {
-  .container {
-    width: 100vw;
-  }
-  .panel:nth-of-type(3),
-  .panel:nth-of-type(4) {
-    display: none;
-  }
-} */
+.display {
+  margin-bottom: 20px;
+}
