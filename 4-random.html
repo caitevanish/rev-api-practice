@@ -9,7 +9,14 @@
   </head>
   <body>
     <nav><a href="/0-art-api-home.html">Back to Home</a></nav>
-    <div>
+    <main class="container">
+      <h1>The Mysterious Random Page</h1>
+      <br />
+      <button id="btnGetRandomObj">Click for something random:</button>
+      <div class="display"></div>
+    </main>
+
+    <!-- <div>
       <h2>Random</h2>
       <ul>
         <li>title</li>
@@ -20,10 +27,85 @@
         <li>classification</li>
         <li>artistNationality</li>
         <li>artistWikidata_URL</li>
-        <button>Get new Artwork</button>
+        <button id="btnGetRandomObj">Get new Artwork</button>
       </ul>
-    </div>
+    </div> -->
 
-    <script></script>
+    <script>
+      const displayContainer = document.querySelector('.display');
+      const random_api_url =
+        'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
+        Math.floor(900000 * Math.random());
+      const request = fetch(random_api_url);
+      // renderArtworks(data);
+      console.log(request);
+
+      // ------------ Render Data ----------------
+      const renderArtworks = function (data, className = '') {
+        //   if (
+        //     data.message != 'Not a valid object' &&
+        //     data.message != 'ObjectID not found'
+        //   ) {
+        //     const html = `<div>
+        //     <h3 id="artTitle">${data.title}</h3>
+        //     <img id="artMainImage" src="${data.primaryImageSmall}" alt="artwork" />
+        //     <h4 id="artistName">${data.artistDisplayName}</h4>
+        //     <p id="dim">${data.dimensions}</p>
+        //     <p id="medium">${data.medium}</p>
+        //     <p id="classif">${data.classification}</p>
+        //     <p id="nation">${data.artistNationality}</p>
+        //     <a id="wikiLink" href="${data.objectWikidata_URL}">${data.objectWikidata_URL}</a>
+        //   </div> `;
+        //     displayContainer.insertAdjacentHTML('beforeend', html);
+        //   }
+        //   const html = `<div><h3>Try again!</h3></div>`;
+        //   displayContainer.insertAdjacentHTML('beforeend', html);
+        // };
+
+        if (
+          data.message === 'Not a valid object' ||
+          data.message === 'ObjectID not found'
+        ) {
+          const html = `<div><h3>Try again!</h3></div>`;
+          displayContainer.insertAdjacentHTML('beforeend', html);
+        } else if (
+          data.message != 'Not a valid object' &&
+          data.message != 'ObjectID not found'
+        ) {
+          const html = `<div>
+          <h3 id="artTitle">${data.title}</h3>
+          <img id="artMainImage" src="${data.primaryImageSmall}" alt="artwork" />
+          <h4 id="artistName">${data.artistDisplayName}</h4>
+          <p id="dim">${data.dimensions}</p>
+          <p id="medium">${data.medium}</p>
+          <p id="classif">${data.classification}</p>
+          <p id="nation">${data.artistNationality}</p>
+          <a id="wikiLink" href="${data.objectWikidata_URL}">${data.objectWikidata_URL}</a>
+        </div> `;
+          displayContainer.insertAdjacentHTML('beforeend', html);
+        }
+      };
+
+      // ------------ Loading page ----------------
+      const getImageData = function (getRandomObject) {
+        fetch(random_api_url)
+          .then((response) => response.json())
+          .then((data) => renderArtworks(data));
+      };
+
+      // ------------ Random Object Button ----------------
+      const getRandomObject = document.getElementById('btnGetRandomObj');
+
+      let result = fetch(random_api_url);
+      // console.log(result);
+
+      getRandomObject.addEventListener('click', async function (event) {
+        const httpResponse = await fetch(random_api_url);
+        const data = await httpResponse.json();
+        renderArtworks(data);
+
+        console.log(data);
+      });
+    </script>
   </body>
 </html>
